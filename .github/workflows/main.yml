@@ -20,7 +20,7 @@ jobs:
         git clone https://github.com/Pooja-manyam/test-1.git
         cd test-1  # The repository was already cloned
         git checkout main  # Change to the branch you want to deploy to in the "Test" repository
-        cp -r ${{ github.workspace }}/* ./test-1-copy
+        cp -r ${{ github.workspace }}/* .  # Copy the contents to the root of "test-1"
         git add .
         git commit -m "Automated push from Dev to Test"
         git push
