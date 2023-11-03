@@ -13,7 +13,7 @@ jobs:
     - name: Checkout code from Dev
       uses: actions/checkout@v2
       with:
-        repository: dev1
+        repository: Pooja-manyam/dev1
         ref: main  # Change to the branch you want to deploy from
 
     - name: Push to Test
