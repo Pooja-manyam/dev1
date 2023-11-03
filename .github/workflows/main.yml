@@ -19,7 +19,7 @@ jobs:
     - name: Push to Test
       run: |
         git clone https://github.com/Pooja-manyam/test-1.git
-        cd https://github.com/Pooja-manyam/test-1.git
+        cd Pooja-manyam/test-1
         git checkout main  # Change to the branch you want to deploy to in the "Test" repository
         cp -r ../${{ github.workspace }}/* .
         git add .
