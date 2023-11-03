@@ -13,15 +13,14 @@ jobs:
     - name: Checkout code from Dev
       uses: actions/checkout@v2
       with:
-        repository: Pooja-manyam/dev1
         ref: main  # Change to the branch you want to deploy from
 
     - name: Push to Test
       run: |
         git clone https://github.com/Pooja-manyam/test-1.git
-        cd Pooja-manyam/test-1
+        cd test-1  # The repository was already cloned
         git checkout main  # Change to the branch you want to deploy to in the "Test" repository
-        cp -r ../${{ github.workspace }}/* .
+        cp -r ${{ github.workspace }}/* .
         git add .
         git commit -m "Automated push from Dev to Test"
         git push
