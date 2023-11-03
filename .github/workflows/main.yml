@@ -1,0 +1,27 @@
+name: Deploy from Dev to Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code from Dev
+      uses: actions/checkout@v2
+      with:
+        repository: dev1
+        ref: main  # Change to the branch you want to deploy from
+
+    - name: Push to Test
+      run: |
+        git clone git@github.com:test 1.git
+        cd my-app-test
+        git checkout main  # Change to the branch you want to deploy to in the "Test" repository
+        cp -r ../${{ github.workspace }}/* .
+        git add .
+        git commit -m "Automated push from Dev to Test"
+        git push
